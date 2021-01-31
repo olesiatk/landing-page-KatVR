@@ -56,15 +56,15 @@
     background-color: $colorContrast;
   }
 
-  &__toggle:checked ~ &__btn > &__span {
+  &__toggle--active ~ &__btn > &__span {
     width: 0;
     transform: rotate(360deg);
   }
-  &__toggle:checked ~ &__btn > &__span::before {
+  &__toggle--active ~ &__btn > &__span::before {
     top: 0;
     transform: rotate(45deg);
   }
-  &__toggle:checked ~ &__btn > &__span::after {
+  &__toggle--active ~ &__btn > &__span::after {
     top: 0;
     transform: rotate(135deg);
   }
@@ -91,7 +91,7 @@
     }
   }
 
-  &__toggle:checked ~ &__list {
+  &__toggle--active ~ &__list {
     visibility: visible;
 
     .nav__list {
@@ -148,5 +148,18 @@
       margin: 0;
       padding: 0;
     }
+  }
+
+  &__link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $colorContrast;
+    transition: width 0.3s;
+  }
+
+  &__link:hover::after {
+    width: 100%;
   }
 }

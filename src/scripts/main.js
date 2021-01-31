@@ -1,15 +1,21 @@
 'use strict';
 
-// const menu = document.querySelector('.nav__list');
-// const toggler = document.querySelector('.nav__toggle');
-// toggler.onclick = function toggleSidebar() {
-//   menu.classList.toggle('nav__list--open');
-//   toggler.classList.toggle('toggler--active');
-// }
+const button = document.querySelector('.nav__toggle');
+const menuMobLinks = document.querySelector('.nav__list');
 
-// const nav = document.querySelector('.nav__list--open');
-// const link = document.querySelector('.nav__link');
-// link.onclick = function toggleSidebar() {
-//   nav.classList.toggle('nav__list');
-//   toggler.classList.toggle('toggler');
-// }
+menuMobLinks.addEventListener('click', (event) => {
+  toggleMenu();
+});
+
+button.addEventListener('click', (event) => {
+  event.preventDefault();
+  toggleMenu();
+});
+
+function toggleMenu() {
+  if (button.classList.contains('nav__toggle--active')) {
+    button.classList.remove('nav__toggle--active');
+  } else {
+    button.classList.add('nav__toggle--active');
+  }
+}
